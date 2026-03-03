@@ -25,12 +25,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/adorjan/markdown-visualizer"
+    "url": "https://github.com/aadorian/pluginVSCode"
   },
   "bugs": {
-    "url": "https://github.com/adorjan/markdown-visualizer/issues"
+    "url": "https://github.com/aadorian/pluginVSCode/issues"
   },
-  "homepage": "https://github.com/adorjan/markdown-visualizer#readme",
+  "homepage": "https://github.com/aadorian/pluginVSCode#readme",
   "galleryBanner": {
     "color": "#1e1e1e",
     "theme": "dark"
