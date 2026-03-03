@@ -1,15 +1,40 @@
 {
   "name": "markdown-visualizer",
   "displayName": "Markdown Visualizer",
-  "description": "Vista previa en tiempo real, tabla de contenidos y exportar a HTML/PDF para archivos Markdown",
+  "description": "Real-time Markdown preview with table of contents, syntax highlighting, and HTML/PDF export.",
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.85.0"
   },
-  "publisher": "markdown-visualizer",
-  "categories": [
-    "Other"
+  "publisher": "alejandroadorjan",
+  "license": "MIT",
+  "icon": "icon.png",
+  "keywords": [
+    "markdown",
+    "preview",
+    "table of contents",
+    "export",
+    "pdf",
+    "html",
+    "syntax highlighting"
   ],
+  "categories": [
+    "Other",
+    "Visualization",
+    "Formatters"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adorjan/markdown-visualizer"
+  },
+  "bugs": {
+    "url": "https://github.com/adorjan/markdown-visualizer/issues"
+  },
+  "homepage": "https://github.com/adorjan/markdown-visualizer#readme",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
   "activationEvents": [
     "onLanguage:markdown"
   ],
@@ -80,11 +105,17 @@
   "scripts": {
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "copy-assets": "node scripts/copy-assets.js"
+    "copy-assets": "node scripts/copy-assets.js",
+    "package": "vsce package --no-dependencies",
+    "publish:vscode": "vsce publish --no-dependencies",
+    "publish:ovsx": "ovsx publish markdown-visualizer-0.1.0.vsix",
+    "publish:all": "npm run publish:vscode && npm run publish:ovsx"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0",
+    "ovsx": "^0.9.0",
     "typescript": "^5.3.0"
   },
   "dependencies": {
