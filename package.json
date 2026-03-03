@@ -1,0 +1,95 @@
+{
+  "name": "markdown-visualizer",
+  "displayName": "Markdown Visualizer",
+  "description": "Vista previa en tiempo real, tabla de contenidos y exportar a HTML/PDF para archivos Markdown",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "publisher": "markdown-visualizer",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdownVisualizer.openPreview",
+        "title": "Markdown Visualizer: Abrir Vista Previa",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "markdownVisualizer.exportHtml",
+        "title": "Markdown Visualizer: Exportar a HTML"
+      },
+      {
+        "command": "markdownVisualizer.exportPdf",
+        "title": "Markdown Visualizer: Exportar a PDF"
+      },
+      {
+        "command": "markdownVisualizer.goToLine",
+        "title": "Markdown Visualizer: Ir a línea"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "markdownVisualizer.toc",
+          "name": "Markdown TOC",
+          "when": "editorLangId == markdown"
+        }
+      ]
+    },
+    "menus": {
+      "editor/title": [
+        {
+          "command": "markdownVisualizer.openPreview",
+          "when": "editorLangId == markdown",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "markdownVisualizer.exportHtml",
+          "when": "editorLangId == markdown"
+        },
+        {
+          "command": "markdownVisualizer.exportPdf",
+          "when": "editorLangId == markdown"
+        },
+        {
+          "command": "markdownVisualizer.goToLine",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Markdown Visualizer",
+      "properties": {
+        "markdownVisualizer.scrollSync": {
+          "type": "boolean",
+          "default": true,
+          "description": "Sincronizar posición de scroll entre el editor y la vista previa"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "copy-assets": "node scripts/copy-assets.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@highlightjs/cdn-assets": "^11.11.1",
+    "highlight.js": "^11.9.0",
+    "marked": "^11.0.0"
+  }
+}
